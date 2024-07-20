@@ -1,0 +1,75 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Đồ Án Web</title>
+    <!--Danh sach Link Phim-->
+    <link rel="stylesheet" href="~/Web/DoAnWeb/CSS/DoAn.css">
+    <link rel="stylesheet" href="~/Web/DoAnWeb/CSS/Phimle.css">
+    <link rel="stylesheet" href="~/Web/DoAnWeb/chạy_demo__video/Demo.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+
+</head>
+<body>
+    <div class="head">
+        <div class="head1">
+            <div> <a asp-controller="Phimlist" asp-action="Phim" title="Xem Phim tại TIEOETS"> <img width="80" height="70" src="~/Web/DoAnWeb/images/logo.jpg" alt="Logo"></a></div>
+            <div class="box-menu">
+                <ul>
+                    <li><a asp-controller="Phimlist" asp-action="Phim">Trang chủ</a></li>
+                    <li><a asp-controller="MucLuc" asp-action="DanhSachLe">Phim Lẻ</a></li>
+                    <li><a asp-controller="MucLuc" asp-action="DanhSachBo">Phim Bộ</a></li>
+                    <li>
+                        <a asp-controller="BinhLuan" asp-action="Index">Bình Luận</a>
+                        <div class="box-submenu">
+                        </div>
+                    </li>
+                   <partial name="_LoginPartial"></partial>
+                </ul>
+
+            </div>
+            <form class="TimKiem" name="timkiem" action="/Phimlist/Search" method="get">
+                <div><input class="thanhtimkiem" type="text" name="key" placeholder="Tìm Kiếm..."></div>
+                <div><input class="thanhnut" type="submit" value="Tìm Kiếm"></div>
+            </form>
+
+            <!--<div class="hamburger-menu" onclick="toggleMenu()">
+                <i class="fas fa-bars"></i>
+            </div>-->
+        </div>
+    </div>
+    <div id="head2">
+        <div class="head2">
+            <p>Truy cập vào TIEOETS.net giúp bạn có thể trải nghiệm những bộ phim hay!</p>
+        </div>
+    </div>
+        @RenderBody()
+    <div class="end">
+        <div class="end1">
+            <a href="" title="Xem Phim tại TIEOETS"><i class="fa-solid fa-c"></i>.TIEOETS </a>
+            <ul>
+                <li><a href="https://www.tiktok.com/vi-VN/"><i class="fa-brands fa-tiktok"></i></a></li>
+                <li><a href="https://www.facebook.com/?locale=vi_VN"><i class="fa-brands fa-facebook"></i></a></li>
+                <li><a href="https://www.instagram.com/"><i class="fa-brands fa-instagram"></i></a></li>
+                <li><a href="https://www.youtube.com/?app=desktop&gl=asia&hl=vi"><i class="fa-brands fa-youtube"></i></a></li>
+                <li><a id="backtop" href=""><i class="fa-solid fa-arrow-up"></i></a></li>
+            </ul>
+        </div>
+    </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="~/Web/DoAnWeb/JS/DoAn.js"></script>
+    <script src="~/assets/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="~/assets/parallax/jarallax.js"></script>
+    <script src="~/assets/smoothscroll/smooth-scroll.js"></script>
+    <script src="~/assets/ytplayer/index.js"></script>
+    <script src="~/assets/dropdown/js/navbar-dropdown.js"></script>
+    <script src="~/assets/theme/js/script.js"></script>
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    @await RenderSectionAsync("Scripts", false)
+</body>
+</html>

@@ -1,0 +1,574 @@
+@import url('https://fonts.googleapis.com/css2?family=Alata&display=swap');
+
+body {
+    font-family: 'alata',sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #282727;
+    color: var(--white-color);
+    width: 100%;
+}
+
+:root {
+    --main-color: #101518;
+    --white-color: #f2f2f2;
+    --text-color: #2D2D2D;
+    --gachphancach: #555555;
+}
+
+#myVideo {
+    width: 100%;
+    height: 360px;
+}
+
+.server {
+    width: 100%;
+    background-color: var(--text-color);
+}
+
+    .server p {
+        color: orange;
+        font-size: 12px;
+    }
+
+    .server button {
+        color: #f2f2f2;
+        background-color: var(--gachphancach);
+        padding: 10px;
+        text-align: start;
+        width: 100%;
+        margin-top: 20px;
+        font-weight: bolder;
+    }
+        .server button:hover {
+            color: #3F87E4;
+        }
+.fa-play {
+    font-size: 9px;
+    color: var(--main-color);
+    background-color: var(--white-color);
+    padding: 5px;
+    border-radius: 5px;
+}
+
+.ThongTinPhimXem {
+    margin-top: 10px;
+    background: rgba(0,0,0,.3);
+    text-align: start;
+    display: flex;
+    gap: 10px;
+    margin: auto;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    width: 100%;
+}
+
+    .ThongTinPhimXem:hover {
+        background-color: #000000;
+    }
+
+    .ThongTinPhimXem p {
+        font-size: 70%;
+    }
+.ImgMovie {
+    width: 25%;
+    align-items: stretch;
+}
+
+    .ImgMovie img {
+        border-radius: 5px;
+        width: 100%;
+        height: 200px;
+        object-fit: cover;
+    }
+.title {
+    display: flex;
+    margin-left: 25px;
+    gap: 5px;
+}
+.mid {
+    width: 80%;
+    margin: auto;
+    display: grid;
+    grid-template-columns: 70% 30%; /* Phân chia cột trái và cột phải */
+}
+
+/* Phần giữa của web nằm bên trái*/
+.contentleft {
+    width: 100%;
+    background-color: var(--main-color);
+}
+
+.content1 {
+    padding-top: 20px;
+    background-color: var(--main-color);
+}
+
+    .content1 div {
+        width: 95%;
+        margin: auto;
+    }
+
+/* Phần giữa của web chuyển ảnh phim*/
+.swiper-wrapper {
+    width: 95%;
+    height: 300px;
+}
+
+.swiper-slide {
+    text-align: center;
+}
+
+    .swiper-slide img {
+        width: 100%;
+        height: 350px;
+        object-fit: cover;
+        transition: transform 0.5s ease;
+    }
+
+    .swiper-slide a {
+        color: var(--white-color);
+    }
+
+    .swiper-slide p {
+        font-size: 100%;
+        position: absolute;
+        bottom: 10px;
+    }
+
+    .swiper-slide:hover img {
+        transform: scale(1.1);
+    }
+/* Phần giữa của web các bộ phim nổi bật và thông tin cơ bản*/
+#Phim h4 {
+    padding-left: 20px;
+}
+
+.content2 {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap:wrap;
+    width: 95%;
+    margin: auto;
+}
+
+.nam {
+    color: var(--gachphancach);
+    font-size: 10px;
+}
+
+.video-thumbnail {
+    position: relative;
+}
+
+    .video-thumbnail img {
+        width: 100%; /* Đảm bảo hình ảnh phù hợp với khối chứa */
+        display: block;
+    }
+
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.7); /* Màu nền mờ */
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity 0.5s ease;
+}
+
+.video-thumbnail a {
+    color: var(--white-color);
+    text-decoration: none;
+}
+
+.video-thumbnail:hover .overlay {
+    opacity: 1;
+}
+
+.video-thumbnail img {
+    width: 100%;
+    transition: transform 0.5s ease;
+}
+
+.video-thumbnail:hover img {
+    transform: scale(0.9);
+}
+
+.play-button {
+    font-size: 50px;
+    cursor: pointer;
+}
+
+.Khunganh {
+    width: 24%;
+    position: relative;
+    height: auto; /* Hoặc kích cỡ bạn mong muốn */
+    overflow: hidden;
+    border-radius: 5px;
+}
+
+.img {
+    width: 100%;
+    align-items: stretch;
+}
+
+    .img img {
+        width: 100%;
+        height: 150px;
+        object-fit: cover;
+    }
+
+.TieuDe p {
+    width: 100%;
+    white-space: nowrap; /* Ngăn văn bản xuống dòng */
+    overflow: hidden; /* Ẩn phần văn bản bị tràn */
+    text-overflow: ellipsis; /* Hiển thị dấu ba chấm khi văn bản bị tràn */
+}
+
+.TieuDe .nam {
+    margin-top: -15px;
+}
+
+.trangthai {
+    font-size: 70%;
+    width: 35%;
+    z-index: 1;
+    position: relative;
+    bottom: 15px;
+    background-color: #408BEA;
+}
+
+.content3, .content4,.content5 {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    width: 95%;
+    margin: auto;
+}
+
+.contentleft h3 {
+    margin-left: 20px;
+}
+/* Thông tin các bộ phân sắp ra*/
+.infomation {
+    display: flex;
+    justify-content: space-around;
+    width: 95%;
+    margin: auto;
+    gap: 15px;
+    margin-bottom: 2%;
+}
+
+    .infomation p {
+        color: var(--gachphancach);
+        font-size: 13px;
+    }
+
+.imgs {
+    width: 50%;
+    align-items: stretch;
+}
+
+    .imgs img {
+        height: 150px;
+        object-fit: cover;
+    }
+/* Phần giữa của web nằm bên phải*/
+.contentright {
+    text-align: center;
+    background-color: var(--main-color);
+    width: 100%;
+    border-left: 1px dotted var(--gachphancach);
+}
+
+    .contentright hr {
+        width: 80%;
+        border: 1px solid var(--gachphancach);
+    }
+
+.right1 div h4 {
+    padding: 20px;
+    text-align: start;
+    font-weight: lighter;
+}
+
+.right1 div i {
+    color: var(--white-color);
+}
+/*Cột bên phải nói về năm của bộ phim ra */
+.year1 ul {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    padding-left: 0;
+}
+
+.year1 li {
+    flex: 1 1 auto;
+}
+
+.year1 a {
+    text-decoration: none;
+    background: rgba(0,0,0,.3);
+    color: rgba(255,255,255,.5);
+    text-align: center;
+    padding: 8px 0;
+    font-size: 13px;
+    font-weight: 500;
+    display: block;
+    width: 90%;
+}
+
+    .year1 a:hover {
+        background-color: #408BEA;
+        color: white;
+    }
+
+.movie {
+    width: 95%;
+    margin: auto;
+}
+
+    .movie img {
+        border-radius: 10px;
+        width: 100%;
+        height: 250px;
+        object-fit: cover;
+    }
+
+    .movie p {
+        text-align: start;
+        z-index: 1;
+        position: relative;
+        left: 10px;
+        bottom: 85px;
+    }
+/*Nội dung phim và đánh giá phim bên phải */
+.right2 {
+    background-color: var(--main-color);
+}
+
+.baiviet {
+    width: 100%;
+    margin-top: -80px;
+}
+
+.quangcao {
+    background: rgba(0,0,0,.3);
+    text-align: start;
+    display: flex;
+    gap: 10px;
+    margin: auto;
+    margin-top: 20px;
+    width: 90%;
+}
+
+    .quangcao:hover {
+        background-color: #000000;
+    }
+
+    .quangcao p {
+        font-size: 70%;
+    }
+
+.imgright2 {
+    width: 40%;
+    align-items: stretch;
+}
+
+    .imgright2 img {
+        border-radius: 5px;
+        width: 100%;
+        height: 120px;
+        object-fit: cover;
+    }
+
+.informationquyangcao {
+    width: 60%;
+}
+
+.saodanhgia {
+    display: flex;
+    justify-content: flex-start;
+}
+
+.star {
+    padding: 1px 10px 1px 10px;
+    border: 1px solid var(--gachphancach);
+}
+
+.saodanhgia .nam {
+    padding: 1px 10px 1px 10px;
+}
+
+.fa-star:hover {
+    color: #408BEA;
+}
+
+.fa-star {
+    color: #6F6F6F;
+}
+
+@media (max-width: 1280px) {
+
+    .TimKiem div input {
+        width: auto;
+    }
+    /*.TimKiem div input,*/ .TimKiem div button {
+        display: none;
+    }
+
+    .trangthai {
+        font-size: 50%;
+        width: 35%;
+    }
+
+    .end1 a {
+        margin: auto;
+    }
+
+    .end1 ul {
+        display: none;
+    }
+
+    .imgs {
+        width: 100%;
+    }
+
+        .imgs img {
+            width: 100%;
+        }
+
+    .titlePhimLe h2 {
+        display: inline-block;
+        width: 20%;
+        position: relative;
+        top: 35px;
+        background-color: var(--main-color);
+    }
+}
+
+@media (max-width: 960px) {
+    body {
+        width: auto;
+        background-color: var(--main-color);
+    }
+
+    .hamburger-menu {
+        display: flex;
+    }
+
+    .head1 div ul {
+        display: none;
+    }
+
+    .TimKiem div input {
+        width: auto;
+    }
+    /*.TimKiem div input,*/ .TimKiem div button {
+        display: none;
+    }
+
+    .content2, .content3, .content4, .content5 {
+        flex-wrap: wrap;
+    }
+
+    .Khunganh {
+        width: 49%;
+    }
+
+    .img img {
+        width: 100%;
+        height: 150px;
+        object-fit: cover;
+    }
+
+    .trangthai {
+        font-size: 50%;
+        width: 20%;
+    }
+
+    .contentright {
+        border-left: 0px dotted #555555;
+        border-top: 1px solid #555555;
+    }
+
+    .year1 {
+        width: 100%;
+    }
+
+    .titlePhimLe h2 {
+        display: inline-block;
+        width: 30%;
+        position: relative;
+        top: 35px;
+        background-color: var(--main-color);
+    }
+    .ThongTinPhimXem {
+        display: block; 
+        text-align: center;
+    }
+}
+
+@media (max-width: 760px) {
+    .mid {
+        grid-template-columns: 100%; /*khi chuyển bố cục làm cho bên trái phải thành 1 cột 100% */
+    }
+
+    .img img {
+        width: 100%;
+        height: 100px;
+        object-fit: cover;
+    }
+
+    .video-thumbnail:hover .overlay {
+        opacity: 1;
+    }
+
+    .trangthai {
+        font-size: 30%;
+        width: 30%;
+    }
+
+    .infomation {
+        font-size: 50%;
+    }
+
+    .titlePhimLe h2 {
+        display: inline-block;
+        width: 50%;
+        position: relative;
+        top: 35px;
+        background-color: var(--main-color);
+    }
+}
+@media (max-width:415px) {
+    .title {
+        display: none;
+    }
+}
+
+    @media (max-width:380px) {
+        .TimKiem div i {
+            display: none;
+        }
+        /*     .TimKiem div i{
+        display: none;
+    }
+    .TimKiem i{
+            color: #fff;
+            position: absolute;
+            top: 30px;
+            left: 250px;
+            z-index: 1;
+
+        }
+} */
+    }

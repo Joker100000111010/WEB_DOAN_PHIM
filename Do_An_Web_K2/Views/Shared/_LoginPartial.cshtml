@@ -1,0 +1,28 @@
+﻿@using Microsoft.AspNetCore.Identity
+
+@inject SignInManager<IdentityUser> SignInManager
+@inject UserManager<IdentityUser> UserManager
+
+@if (SignInManager.IsSignedIn(User))
+{
+    <li>
+        <a id="manage" asp-area="Identity" asp-page="/Account/Manage/Index" title="Manage">Hello @UserManager.GetUserName(User)!</a>
+        <div class="box-submenu">
+            <ul>
+                <li><a asp-area="Identity" asp-page="/Account/Logout"><i class="fa-solid fa-caret-right"></i>&ensp;Đăng Xuất</a></li>
+            </ul>
+        </div>
+    </li>
+}
+else
+{
+        <li>
+            <a href="#"><i class="fa-regular fa-user"></i>&ensp;<i class="fa-solid fa-caret-down" aria-hidden="true"></i></a>
+            <div class="box-submenu">
+                <ul>
+                    <li><a  asp-area="Identity" asp-page="/Account/Register"><i class="fa-solid fa-caret-right"></i>&ensp;Đăng Ký</a></li>
+                    <li><a  asp-area="Identity" asp-page="/Account/Login"><i class="fa-solid fa-caret-right"></i>&ensp;Đăng Nhập</a></li>
+                </ul>
+            </div>
+        </li>
+}

@@ -1,0 +1,161 @@
+﻿@using Microsoft.AspNetCore.Http
+@using Do_An_Web_K2.Models.DichVu
+@using Do_An_Web_K2.Data
+@model Do_An_Web_K2.Models.TimKiem
+@inject PhimDbContext dbContext
+@{
+    ViewBag.Title = "Search";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+
+    var key = ViewContext.HttpContext.Request.Query["key"].ToString();
+    List<InformationPhim> result = new List<InformationPhim>();
+    //Danh Sach Phim moi bat nhat
+    var idList5 = new List<int> { 7 };
+    var Movieitems5 = Model.ThongTinPhim.Where(item => idList5.Contains(item.Id)).Take(1);
+    //Danh Sach Phim noi bat bên Phải
+    var idList6 = new List<int> { 17, 18, 19, 20 };
+    var Movieitems6 = Model.ThongTinPhim.Where(item => idList6.Contains(item.Id)).Take(4);
+    //Danh sach so nam Phim
+    var idList8 = new List<int> { 1, 3, 6 };
+    var Movieitems8 = Model.ThongTinPhim.Where(item => idList8.Contains(item.Id)).Take(3);
+    var idList9 = new List<int> { 7, 9, 12 };
+    var Movieitems9 = Model.ThongTinPhim.Where(item => idList9.Contains(item.Id)).Take(3);
+    var idList10 = new List<int> { 14, 16, 19 };
+    var Movieitems10 = Model.ThongTinPhim.Where(item => idList10.Contains(item.Id)).Take(3);
+    var idList11 = new List<int> { 21, 24, 27 };
+    var Movieitems11 = Model.ThongTinPhim.Where(item => idList11.Contains(item.Id)).Take(3);
+}
+@{
+    if (string.IsNullOrEmpty(key) || key.Length < 1)
+    {
+        <h3 style="margin-bottom:450px;text-align:center;color:red">Vui Lòng Nhập từ khóa trong Tìm Kiếm!</h3>
+    }
+    else
+    {
+        result = new PhimRepository(dbContext).SearchByKey(key);
+        <div class="mid">
+            <div class="contentleft">
+                    <h1 style="font-size:25px">Search: @key</h1>
+            <div id="Phim">
+                    <div class="content2">
+                @foreach (var item in result)
+                {
+                            <div class="Khunganh">
+                                <div class="img">
+                                    <div class="video-thumbnail">
+                                        <img src="@item.Image" alt="">
+                                        <a asp-controller="Phimlist" asp-action="Video" asp-route-id="@item.Id">
+                                            <div class="overlay">
+                                                <div class="play-button">
+                                                    &#9658;
+                                                </div>
+
+                                            </div>
+                                        </a>
+                                    </div>
+                                    <div class="trangthai">@item.TrangThai</div>
+
+                                </div>
+                                <div class="TieuDe">
+                                    <p>@item.TieuDePhim</p>
+                                    <p class="nam">@item.SoNamPhim</p>
+                                </div>
+                            </div>
+                }
+                    </div>
+            </div>
+        </div>
+            <div class="contentright">
+                <div class="right1">
+                    <div class="year">
+                        <h4>Năm phát hành</h4>
+                    </div>
+                    <div class="year1">
+                        <div>
+                            <ul>
+                                @foreach (var item in Movieitems8)
+                                {
+                                    <li>
+                                        <a asp-controller="Phimlist" asp-action="NamPhim" asp-route-id="@item.Id">
+                                            @item.SoNamPhim
+                                        </a>
+                                    </li>
+                                }
+                            </ul>
+                            <ul>
+                                @foreach (var item in Movieitems9)
+                                {
+                                    <li>
+                                        <a asp-controller="Phimlist" asp-action="NamPhim" asp-route-id="@item.Id">
+                                            @item.SoNamPhim
+                                        </a>
+                                    </li>
+                                }
+                            </ul>
+                            <ul>
+                                @foreach (var item in Movieitems10)
+                                {
+                                    <li>
+                                        <a asp-controller="Phimlist" asp-action="NamPhim" asp-route-id="@item.Id">
+                                            @item.SoNamPhim
+                                        </a>
+                                    </li>
+                                }
+                            </ul>
+                            <ul>
+                                @foreach (var item in Movieitems11)
+                                {
+                                    <li>
+                                        <a asp-controller="Phimlist" asp-action="NamPhim" asp-route-id="@item.Id">
+                                            @item.SoNamPhim
+                                        </a>
+                                    </li>
+                                }
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="right2">
+                    @foreach (var item in Movieitems5)
+                    {
+                        <div class="movie">
+                            <div class="video-thumbnail">
+                                <img class="img" src="@item.Image" alt="">
+                                <a asp-controller="Phimlist" asp-action="Video" asp-route-id="@item.Id">
+                                    <div class="overlay">
+                                        <div class="play-button">
+                                            &#9658;
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                            <p class="tenphim">@item.TieuDePhim</p><p class="tenphim">@item.SoNamPhim</p>
+                        </div>
+                    }
+                    <div class="baiviet">
+                        <b>Các bộ mới nổi gần đây</b>
+                        <hr>
+                        @foreach (var item in Movieitems6)
+                        {
+                            <div class="quangcao">
+                                <div class="imgright2">
+                                    <div class="video-thumbnail">
+                                        <img src="@item.Image" alt="">
+                                        <a asp-controller="Phimlist" asp-action="Video" asp-route-id="@item.Id">
+                                            <div class="overlay">
+                                                <div class="play-button">
+                                                    &#9658;
+                                                </div>
+                                            </div>
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="informationquyangcao"> <p>@item.TieuDePhim<div class="saodanhgia"><p class="star"><i class="fa-solid fa-star"></i>&ensp;9.0</p><p class="nam">@item.SoNamPhim</p></div></p></div>
+                            </div>
+                        }
+                    </div>
+                </div>
+            </div>
+        </div>
+    }
+}
